@@ -1,0 +1,27 @@
+{% extends "kanban/base.html" %}
+{% block content %}
+
+
+    <div class="container">
+        <h1>サインアップ</h1>
+        <form method="post">
+            {% csrf_token %}
+            <!--{{ form.as_p }}-->
+            {% if err %}
+                <p>{{ err }}</p>
+            {% endif %}
+            {% if form.errors%}
+                <p>{{ form.errors }}</p>
+            {% endif %}
+            <p>{{ form.username.label_tag}}</p>
+            <p>{{ form.username }}</p>
+            <p>{{ form.password1.label_tag }}</p>
+            <p>{{ form.password1 }}</p>
+            <p>{{ form.password2.label_tag }}</p>
+            <p>{{ form.password2 }}</p>
+            <button type="submit" class="btn btn-primary">登録</button>
+        </form>
+    </div>
+
+
+{% endblock %}
